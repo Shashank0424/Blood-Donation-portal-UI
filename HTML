@@ -43,14 +43,6 @@
         <p>Contact us at <a href="mailto:support@blooddonation.com">support@blooddonation.com</a></p>
     </footer>
 
-    <script>
-        function searchDonor() {
-            let bloodGroup = document.getElementById("bloodGroup").value;
-            let donors = ["John Doe - A+", "Alice Smith - B+", "Mark Wilson - O-"];
-            let filtered = donors.filter(donor => donor.includes(bloodGroup));
-            let list = document.getElementById("donorList");
-            list.innerHTML = filtered.length ? filtered.map(d => <li>${d}</li>).join('') : "<li>No donors found</li>";
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
