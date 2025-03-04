@@ -1,0 +1,17 @@
+// script.js
+
+function searchDonor() {
+    let bloodGroup = document.getElementById("bloodGroup").value.trim().toUpperCase();
+    let donors = [
+        { name: "John Doe", group: "A+" },
+        { name: "Alice Smith", group: "B+" },
+        { name: "Mark Wilson", group: "O-" }
+    ];
+
+    let filtered = donors.filter(donor => donor.group === bloodGroup);
+    let list = document.getElementById("donorList");
+    
+    list.innerHTML = filtered.length
+        ? filtered.map(d => <li>${d.name} - ${d.group}</li>).join('')
+        : "<li>No donors found</li>";
+}
