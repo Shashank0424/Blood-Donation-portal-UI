@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Blood Donation Portal</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#donors">Find Donors</a>
+            <a href="#register">Register</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <h2>Save a Life, Donate Blood</h2>
+        <p>Connect with donors and recipients in need.</p>
+    </section>
+
+    <section id="donors">
+        <h2>Find a Donor</h2>
+        <input type="text" id="bloodGroup" placeholder="Enter Blood Group (e.g., A+, B-)" />
+        <button onclick="searchDonor()">Search</button>
+        <ul id="donorList"></ul>
+    </section>
+
+    <section id="register">
+        <h2>Register as a Donor</h2>
+        <form>
+            <input type="text" placeholder="Full Name" required>
+            <input type="text" placeholder="Blood Group" required>
+            <input type="text" placeholder="City" required>
+            <button type="submit">Register</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Contact us at <a href="mailto:support@blooddonation.com">support@blooddonation.com</a></p>
+    </footer>
+
+    <script>
+        function searchDonor() {
+            let bloodGroup = document.getElementById("bloodGroup").value;
+            let donors = ["John Doe - A+", "Alice Smith - B+", "Mark Wilson - O-"];
+            let filtered = donors.filter(donor => donor.includes(bloodGroup));
+            let list = document.getElementById("donorList");
+            list.innerHTML = filtered.length ? filtered.map(d => <li>${d}</li>).join('') : "<li>No donors found</li>";
+        }
+    </script>
+</body>
+</html>
